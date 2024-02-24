@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import {Box, Button, Stack, TextField, Typography} from '@mui/material';
-import { SearchOffSharp } from '@mui/icons-material';
+import { fetchData, exerciseOptions } from '../utils/fetchData';
 
 const SearchExercises = () => {
 
@@ -9,7 +9,9 @@ const SearchExercises = () => {
 
     const handleSearch = async() => {
         if(search){
-            // const exercises = await fetchData();
+            const exerciseData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPart/back', exerciseOptions);
+
+            console.log(exerciseData);
         }
     }
 
@@ -53,7 +55,7 @@ const SearchExercises = () => {
                                 position:'absolute',
                                 right: '0'
                             }}
-                            onClick={handleSearch()}
+                            onClick={handleSearch}
                             >
                             Search
                     </Button>
