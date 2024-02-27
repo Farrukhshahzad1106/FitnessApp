@@ -7,6 +7,7 @@ export const exerciseOptions = {
   };
 
 
+  //While making a request to the RApid API's API we need to pass in the url and along with the options( which contains the method and header object, The header object has the key and host to authenticate)
 export const fetchData = async (url, options) => {
     const response = await fetch(url, options);
     const data = await response.json();

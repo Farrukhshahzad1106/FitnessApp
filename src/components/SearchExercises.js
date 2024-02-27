@@ -8,17 +8,19 @@ const SearchExercises = ({setExercises, bodyPart, setBodyPart}) => {
 
     const [search, setSearch] = useState('');
 
+    //In the useEffect we are making an GET request to fetch the list of bodypart which will be displayed in the form of a scrollable menu
     useEffect( () => {
             const fetchExercisesData = async () => {
                 const bodyPartsData = await fetchData ('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
                 console.log(bodyPartsData)
-                setBodyPart(['all', ...bodyPartsData]);
+                setBodyPart(['All', ...bodyPartsData]);
                 
             }
             fetchExercisesData();
             console.log("Body Part",bodyPart); 
     }, [])
 
+    //When the search button is clicked the handleSearch async function is invoked and it will make a GET request to the database and fetches all the exercises and then filters it with the search text and returns the result
     const handleSearch = async() => {
         if(search){
             const exerciseData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
@@ -29,16 +31,18 @@ const SearchExercises = ({setExercises, bodyPart, setBodyPart}) => {
                 || exercise.equipment.toLowerCase().includes(search)
                 || exercise.bodyPart.toLowerCase().includes(search)
             )
-
             setSearch('');
             setExercises(searchedExercises);
+            //We are setting a list of exercises after filtering the result based on the search key
+            //The exercises state variable will be used to display the respective exercises after the search is performed.
+            //Since the exercises to be displayed will be implemented in another component we defined the state variable in the 'Home' parent component
         }
     }
 
 
   return (
     <Stack alignItems='center' mt='37px' justifyContent='center' p='20px'>
-        <Typography fontWeight='700' 
+        <Typography fontWeight={700}  
                     sx={{
                         fontSize: { lg:'44px', xs: '30px'}
                     }}
@@ -56,7 +60,6 @@ const SearchExercises = ({setExercises, bodyPart, setBodyPart}) => {
                             width: { lg: '800px', xs:'350px'},
                             backgroundColor: '#fff',
                             borderRadius: '40px'
-
                         }}
                         height='76px'
                         value={search}
