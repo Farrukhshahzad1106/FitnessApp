@@ -9,7 +9,8 @@ import Exercises from '../components/Exercises';
 const Home = () => {
 
   const [exercises, setExercises] = useState([]);
-  const [bodyPart, setBodyPart] = useState(['All']);
+  const [bodyPart, setBodyPart] = useState('all');
+  //The bodyPart will be the selected bodypart from the HorizontalScrollbar on which we have clicked
 
   return (
     <Box>

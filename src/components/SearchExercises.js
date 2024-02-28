@@ -7,18 +7,21 @@ import HorizontalScrollbar from './HorizontalScrollbar';
 const SearchExercises = ({setExercises, bodyPart, setBodyPart}) => {
 
     const [search, setSearch] = useState('');
+    const [bodyParts, setBodyParts] = useState([]);
 
     //In the useEffect we are making an GET request to fetch the list of bodypart which will be displayed in the form of a scrollable menu
     useEffect( () => {
             const fetchExercisesData = async () => {
                 const bodyPartsData = await fetchData ('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
                 console.log(bodyPartsData)
-                setBodyPart(['All', ...bodyPartsData]);
+                setBodyParts(['All', ...bodyPartsData]);
                 
             }
             fetchExercisesData();
-            console.log("Body Part",bodyPart); 
+            
     }, [])
+
+    console.log("Body Parts",bodyParts); 
 
     //When the search button is clicked the handleSearch async function is invoked and it will make a GET request to the database and fetches all the exercises and then filters it with the search text and returns the result
     const handleSearch = async() => {
@@ -88,7 +91,7 @@ const SearchExercises = ({setExercises, bodyPart, setBodyPart}) => {
             width: '100%',
             p: '20px'
         }}>
-            <HorizontalScrollbar data={bodyPart} bodyPart={bodyPart} setBodyPart={setBodyPart} />
+            <HorizontalScrollbar data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart} />
 
         </Box>
     </Stack>
