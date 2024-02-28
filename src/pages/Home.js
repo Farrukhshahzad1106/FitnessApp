@@ -9,6 +9,7 @@ import Exercises from '../components/Exercises';
 const Home = () => {
 
   const [exercises, setExercises] = useState([]);
+  //The exercises state variable is used to store the filtered search after the user searches something on the seaarch bar.
   const [bodyPart, setBodyPart] = useState('all');
   //The bodyPart will be the selected bodypart from the HorizontalScrollbar on which we have clicked
 

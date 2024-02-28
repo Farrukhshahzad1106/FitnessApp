@@ -20,7 +20,7 @@ const RightArrow = () => {
 
     return (
         <Typography onClick={ () => scrollNext()} className='left-arrow'>
-            <img src={RightArrowIcon} alt='left-arrow'/>
+            <img src={RightArrowIcon} alt='right-arrow'/>
         </Typography>
     )
 }
@@ -30,7 +30,7 @@ const HorizontalScrollbar = ({data, bodyPart, setBodyPart}) => {
   return (
     <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
         {
-            data.map( (item) => 
+            data.map( (item) => (
                 <Box 
                     key={item.id || item}
                     itemID={item.id || item}
@@ -40,7 +40,7 @@ const HorizontalScrollbar = ({data, bodyPart, setBodyPart}) => {
                     <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart} />
                 </Box>
             )
-        }
+        )}
     </ScrollMenu>
   )
 }
