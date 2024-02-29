@@ -21,7 +21,7 @@ const BodyPart = ({item, bodyPart, setBodyPart}) => {
             }}
             onClick={ () => {
                 setBodyPart(item);
-                window.scrollTo({top: 1800, left: 100, behaviour: 'smooth'})
+                window.scrollTo({top: 1800, left: 100, behavior:'smooth'})
             }}
             //Setting the item clicked as the value of the bodyPart state variable defined in Home component.
             >
