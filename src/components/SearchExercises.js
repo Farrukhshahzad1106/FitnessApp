@@ -26,8 +26,8 @@ const SearchExercises = ({setExercises, bodyPart, setBodyPart}) => {
     //When the search button is clicked the handleSearch async function is invoked and it will make a GET request to the database and fetches all the exercises and then filters it with the search text and returns the result
     const handleSearch = async() => {
         if(search){
-            const exerciseData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exerciseOptions);
-
+            const exerciseData = await fetchData('https://exercisedb.p.rapidapi.com/exercises?limit=9999', exerciseOptions);
+            console.log("All Exercises" ,exerciseData);
             const searchedExercises = exerciseData.filter(
                 (exercise) => exercise.name.toLowerCase().includes(search)
                 || exercise.target.toLowerCase().includes(search)
