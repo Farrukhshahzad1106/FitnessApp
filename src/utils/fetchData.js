@@ -6,7 +6,7 @@ export const exerciseOptions = {
     }
   };
 
-  const options = {
+  export const youtubeOptions = {
     method: 'GET',
     headers: {
       'X-RapidAPI-Key': '25cc85be35msh4f6b164c0410549p131610jsn5ffa4b034f53',
@@ -20,6 +20,6 @@ export const fetchData = async (url, options) => {
     const response = await fetch(url, options);
     console.log(response);
     const data = await response.json();
-  console.log(data);
+  // console.log(data);
     return data;
 }
