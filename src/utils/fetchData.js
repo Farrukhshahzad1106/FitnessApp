@@ -1,10 +1,18 @@
 export const exerciseOptions = {
     method: 'GET',
     headers: {
-      'X-RapidAPI-Key': '3c4a0077b8msh4fb41612055e912p1ab04fjsn5c06103a1555',
+      'X-RapidAPI-Key': '25cc85be35msh4f6b164c0410549p131610jsn5ffa4b034f53',
       'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
     }
   };
+
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': '25cc85be35msh4f6b164c0410549p131610jsn5ffa4b034f53',
+      'X-RapidAPI-Host': 'youtube-search-and-download.p.rapidapi.com'
+    }
+  }
 
 
   //While making a request to the RApid API's API we need to pass in the url and along with the options( which contains the method and header object, The header object has the key and host to authenticate)
